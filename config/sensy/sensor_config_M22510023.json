@@ -1,0 +1,130 @@
+{
+    "_comment_scaling_convention": [
+        "vsens[V]            = (adc_val[ADC] - adc_ofs[ADC]) * adc_gain[V/ADC] ",
+        "meas [sensor_unit]  = (vsens[V] - sensor_offs[V]) * sensor_gain[sensor_unit/V] ",
+
+        "Isens[mA]            = (adc_val[ADC] - adc_ofs[ADC]) * adc_gain[mA/ADC] ",
+        "meas [sensor_unit]  = (vsens[mA] - sensor_offs[mA]) * sensor_gain[sensor_unit/mA] "
+    ],
+    "sensor_scaling_default": {
+        "channel_idx": -1,
+        "name": "UNKNOWN",
+        "sensor_gain": 0,
+        "sensor_offs": 0,
+        "meas_unit": "V"
+    },
+    "sensor_scaling": [
+        {
+            "channel_idx": 7,
+            "name": "SNS3_Force1",
+            "sensor_gain": 1,
+            "sensor_offs": 0,
+            "meas_unit": "mA"
+        },
+        {
+            "channel_idx": 8,
+            "name": "SNS3_Force2",
+            "sensor_gain": 1,
+            "sensor_offs": 0,
+            "meas_unit": "mA"
+        },
+        {
+            "channel_idx": 10,
+            "name": "SNS4_Force1",
+            "sensor_gain": 1,
+            "sensor_offs": 0,
+            "meas_unit": "mA"
+        },
+        {
+            "channel_idx": 11,
+            "name": "SNS4_Force2",
+            "sensor_gain": 1,
+            "sensor_offs": 0,
+            "meas_unit": "mA"
+        },
+        {
+            "channel_idx": 13,
+            "name": "SNS5_X",
+            "sensor_gain": 0.934579439,
+            "sensor_offs": 12.0000,
+            "meas_unit": "g"
+        },
+        {
+            "channel_idx": 14,
+            "name": "SNS5_Y",
+            "sensor_gain": 0.934579439,
+            "sensor_offs": 12.0000,
+            "meas_unit": "g"
+        },
+        {
+            "channel_idx": 15,
+            "name": "SNS5_Z",
+            "sensor_gain": 0.934579439,
+            "sensor_offs": 12.0000,
+            "meas_unit": "g"
+        },
+        {
+            "channel_idx": 16,
+            "name": "SNS5_X",
+            "sensor_gain": 0.934579439,
+            "sensor_offs": 12.0000,
+            "meas_unit": "g"
+        },
+        {
+            "channel_idx": 17,
+            "name": "SNS6_Y",
+            "sensor_gain": 0.934579439,
+            "sensor_offs": 12.0000,
+            "meas_unit": "g"
+        },
+        {
+            "channel_idx": 18,
+            "name": "SNS6_Z",
+            "sensor_gain": 0.934579439,
+            "sensor_offs": 12.0000,
+            "meas_unit": "g"
+        },
+        {
+            "channel_idx": 19,
+            "name": "SNS7_X",
+            "sensor_gain": 0.934579439,
+            "sensor_offs": 12.0000,
+            "meas_unit": "g"
+        },
+        {
+            "channel_idx": 20,
+            "name": "SNS7_Y",
+            "sensor_gain": 0.934579439,
+            "sensor_offs": 12.0000,
+            "meas_unit": "g"
+        },
+        {
+            "channel_idx": 21,
+            "name": "SNS7_X",
+            "sensor_gain": 0.934579439,
+            "sensor_offs": 12.0000,
+            "meas_unit": "g"
+        },
+        {
+            "channel_idx": 22,
+            "name": "SNS7_Y",
+            "sensor_gain": 0.934579439,
+            "sensor_offs": 12.0000,
+            "meas_unit": "g"
+        },
+        {
+            "channel_idx": 23,
+            "name": "SNS8_X",
+            "sensor_gain": 0.934579439,
+            "sensor_offs": 12.0000,
+            "meas_unit": "g"
+        },
+        {
+            "channel_idx": 24,
+            "name": "SNS8_Y",
+            "sensor_gain": 0.934579439,
+            "sensor_offs": 12.0000,
+            "meas_unit": "g"
+        }
+    ]
+}

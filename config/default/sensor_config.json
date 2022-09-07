@@ -1,0 +1,39 @@
+{
+    "_comment_scaling_convention": [
+        "vsens[V]            = (adc_val[ADC] - adc_ofs[ADC]) * adc_gain[V/ADC] ",
+        "meas [sensor_unit]  = (vsens[V] - sensor_offs[V]) * sensor_gain[sensor_unit/V] ",
+
+        "Isens[mA]            = (adc_val[ADC] - adc_ofs[ADC]) * adc_gain[mA/ADC] ",
+        "meas [sensor_unit]  = (vsens[mA] - sensor_offs[mA]) * sensor_gain[sensor_unit/mA] "
+    ],
+    "sensor_scaling_default": {
+        "channel_idx": -1,
+        "name": "UNKNOWN",
+        "sensor_gain": 1.000,
+        "sensor_offs": 0.000,
+        "meas_unit": "V"
+    },
+    "sensor_scaling": [
+        {
+            "channel_idx": 1,
+            "name": "IAC-02-X",
+            "sensor_gain": 0.3125,
+            "sensor_offs": 12.0000,
+            "meas_unit": "g"
+        },
+        {
+            "channel_idx": 2,
+            "name": "IAC-02-Y",
+            "sensor_gain": 0.3125,
+            "sensor_offs": 12.0000,
+            "meas_unit": "g"
+        },
+        {
+            "channel_idx": 3,
+            "name": "IAC-02-Z",
+            "sensor_gain": 0.3125,
+            "sensor_offs": 12.0000,
+            "meas_unit": "g"
+        }
+    ]
+}
