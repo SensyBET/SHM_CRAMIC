@@ -7,6 +7,7 @@ import subprocess
 import signal
 # from ftp_client import main as main_ftp
 from binary_decoder import convert
+from convert_csv_to_xl import convert_csv_xls
 
 p = ""
 b = ""
@@ -50,6 +51,10 @@ def __select_file():
 def __convert_to(file):
     print("Covnerting file: %s" % file)
     convert(file)
+
+def __convert_csv(file):
+    print("Covnerting file: %s" % file)
+    convert_csv_xls(file)
 
 def __ftp_request():
     #main_ftp()
@@ -110,19 +115,32 @@ def main():
             command=lambda:__convert_to(__select_file())
             )    
 
+    button5 = tk.Button(
+            mainwindow,
+            text="CSV to XLS",
+            foreground="white",
+            background="grey",
+            width=10,
+            height=2,
+            command=lambda:__convert_csv(__select_file())
+            )    
+
     tk.Label(mainwindow, width=30, text="CRAMIC DATALOGGER", font='Helvetica 28 bold').grid(row=0, column=0, columnspan=2, pady=20) 
+    
     button.grid(row=1, column=1, pady=5)
-
     tk.Label(mainwindow, width=30, text="Download data from datalogger", font=12).grid(row=1, column=0) 
+    
     button2.grid(row=2, column=1, pady=5)
-
     tk.Label(mainwindow, width=30, text="Ping everything", font=12).grid(row=2, column=0)
+    
     button3.grid(row=3, column=1, pady=5)
-
     tk.Label(mainwindow, width=30, text="Open both reset menu", font=12).grid(row=3, column=0)
+    
     button4.grid(row=4, column=1, pady=5)
-
     tk.Label(mainwindow, width=30, text="Convert data to readable format", font=12).grid(row=4, column=0)
+
+    button5.grid(row=5, column=1, pady=5)
+    tk.Label(mainwindow, width=30, text="Convert .csv to xls format", font=12).grid(row=5, column=0)
 
     mainwindow.mainloop()
 

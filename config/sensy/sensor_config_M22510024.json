@@ -45,43 +45,43 @@
         {
             "channel_idx": 13,
             "name": "SNS5_X",
-            "sensor_gain": 0.934579439,
-            "sensor_offs": 12.0000,
+            "sensor_gain": 0.9368,
+            "sensor_offs": 12.055,
             "meas_unit": "g"
         },
         {
             "channel_idx": 14,
             "name": "SNS5_Y",
-            "sensor_gain": 0.934579439,
-            "sensor_offs": 12.0000,
+            "sensor_gain": 0.9385,
+            "sensor_offs": 11.999,
             "meas_unit": "g"
         },
         {
             "channel_idx": 15,
             "name": "SNS5_Z",
-            "sensor_gain": 0.934579439,
-            "sensor_offs": 12.0000,
+            "sensor_gain": 0.9289,
+            "sensor_offs": 12.053,
             "meas_unit": "g"
         },
         {
             "channel_idx": 16,
             "name": "SNS5_X",
-            "sensor_gain": 0.934579439,
-            "sensor_offs": 12.0000,
+            "sensor_gain": 0.9341,
+            "sensor_offs": 12.055,
             "meas_unit": "g"
         },
         {
             "channel_idx": 17,
             "name": "SNS6_Y",
-            "sensor_gain": 0.934579439,
-            "sensor_offs": 12.0000,
+            "sensor_gain": 0.9341,
+            "sensor_offs": 12.090,
             "meas_unit": "g"
         },
         {
             "channel_idx": 18,
             "name": "SNS6_Z",
-            "sensor_gain": 0.934579439,
-            "sensor_offs": 12.0000,
+            "sensor_gain": 0.9307,
+            "sensor_offs": 12.047,
             "meas_unit": "g"
         }
     ]

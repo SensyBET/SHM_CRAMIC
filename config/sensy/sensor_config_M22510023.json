@@ -45,66 +45,66 @@
         {
             "channel_idx": 13,
             "name": "SNS5_X",
-            "sensor_gain": 0.934579439,
-            "sensor_offs": 12.0000,
+            "sensor_gain": 0.9195,
+            "sensor_offs": 12.1160,
             "meas_unit": "g"
         },
         {
             "channel_idx": 14,
             "name": "SNS5_Y",
-            "sensor_gain": 0.934579439,
-            "sensor_offs": 12.0000,
+            "sensor_gain": 0.9315,
+            "sensor_offs": 12.1110,
             "meas_unit": "g"
         },
         {
             "channel_idx": 15,
             "name": "SNS5_Z",
-            "sensor_gain": 0.934579439,
-            "sensor_offs": 12.0000,
+            "sensor_gain": 0.9390,
+            "sensor_offs": 12.1050,
             "meas_unit": "g"
         },
         {
             "channel_idx": 16,
             "name": "SNS5_X",
-            "sensor_gain": 0.934579439,
-            "sensor_offs": 12.0000,
+            "sensor_gain": 0.9272,
+            "sensor_offs": 11.906,
             "meas_unit": "g"
         },
         {
             "channel_idx": 17,
             "name": "SNS6_Y",
-            "sensor_gain": 0.934579439,
-            "sensor_offs": 12.0000,
+            "sensor_gain": 0.9528,
+            "sensor_offs": 12.005,
             "meas_unit": "g"
         },
         {
             "channel_idx": 18,
             "name": "SNS6_Z",
-            "sensor_gain": 0.934579439,
-            "sensor_offs": 12.0000,
+            "sensor_gain": 0.9506,
+            "sensor_offs": 11.996,
             "meas_unit": "g"
         },
         {
             "channel_idx": 19,
             "name": "SNS7_X",
-            "sensor_gain": 0.934579439,
-            "sensor_offs": 12.0000,
+            "sensor_gain": 0.9251,
+            "sensor_offs": 12.071,
             "meas_unit": "g"
         },
         {
             "channel_idx": 20,
             "name": "SNS7_Y",
-            "sensor_gain": 0.934579439,
-            "sensor_offs": 12.0000,
+            "sensor_gain": 0.92,
+            "sensor_offs": 12.047,
             "meas_unit": "g"
         },
         {
             "channel_idx": 21,
             "name": "SNS7_X",
-            "sensor_gain": 0.934579439,
-            "sensor_offs": 12.0000,
+            "sensor_gain": 0.9251,
+            "sensor_offs": 12.071,
             "meas_unit": "g"
-        },
+        },  
         {
             "channel_idx": 22,
             "name": "SNS7_Y",
@@ -115,8 +115,8 @@
         {
             "channel_idx": 23,
             "name": "SNS8_X",
-            "sensor_gain": 0.934579439,
-            "sensor_offs": 12.0000,
+            "sensor_gain": 0.9465,
+            "sensor_offs": 12.061,
             "meas_unit": "g"
         },
         {
