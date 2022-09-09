@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 Cramic.py.lnk
 data/
+data_sensy/

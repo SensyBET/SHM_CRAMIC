@@ -14,7 +14,6 @@ import time, traceback
 import signal
 import sys
 
-
 #global variable
 RETRIEVER_PERIOD_IN_S = 60
 
@@ -25,6 +24,7 @@ if 1:
 else:
     serial_id = "CABIN2"##20510031
     hostname = "192.168.3.103" # public IP or local IP
+    
 port_number = 21
 d = datetime.datetime.utcnow() + datetime.timedelta(0, -10)
 local_folder = "data_sensy\\" + str(serial_id) + "\\data_{:02d}_{:02d}_{:02d}_{:02d}{:02d}{:02d}".format(d.year, d.month, d.day, d.hour, d.minute, d.second)
@@ -115,7 +115,7 @@ def signal_handler(sig, frame):
     print("FTP client: end")
     sys.exit(0)
 
-def main():
+def __get_data():
     global ftp 
     print("FTP client: start")
     
@@ -142,9 +142,9 @@ def main():
 
     retrieve_new_files()
     every(RETRIEVER_PERIOD_IN_S, retrieve_new_files)
-    # except : 
-    #     print("FTP error")
 
+def main():
+    __get_data()  
 
 if __name__ == "__main__":
     main()

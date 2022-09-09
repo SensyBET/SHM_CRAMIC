@@ -3,7 +3,9 @@ from tkinter import filedialog
 import sys
 import os
 import webbrowser
-from ftp_client import main as main_ftp
+import subprocess
+# from ftp_client import main as main_ftp
+from binary_decoder import convert
 
 PINGADRR = {
     "Host" :"192.168.3.100",
@@ -23,7 +25,6 @@ def __ping_everything():
 
 def __ping(host):
     response = os.system("ping " + host)
-    
     if response == 0:
         return True
     else:
@@ -35,21 +36,26 @@ def __open_browser():
     print("Click ON/OFF buttton to reset (Both Tab)")
 
 def __select_file():
-    path= filedialog.askopenfilename(title="Select a File", filetype=(('text files''*.txt'),('all files','*.*')))
+    
+    # path= filedialog.askdirectory(title="Select a Folder")
+    path= filedialog.askopenfilename(title="Select a File", filetype=(('all files','*.*'),))
     return path
 
 def __convert_to(file):
-    try:
-        with open(file) as f:
-            f.read()
-    except:
-        print("Failed to find file %s" % file)
+    print("Covnerting file: %s" % file)
+    convert(file)
+
+def __ftp_request():
+    #main_ftp()
+    p = subprocess.Popen(['python', 'ftp_client1.py'])
+    b = subprocess.Popen(['python', 'ftp_client2.py'])
 
 def main():
     mainwindow = tk.Tk()
     mainwindow.title("Cramic Downloader")
     mainwindow.iconbitmap("assets/img/crane.ico")
     mainwindow.resizable(width=False, height=False)
+
     button = tk.Button(
             mainwindow,
             text="Download",
@@ -57,7 +63,7 @@ def main():
             background="grey",
             width=10,
             height=2,
-            command=lambda:main_ftp()
+            command=lambda:__ftp_request()
             )
     button2 = tk.Button(
             mainwindow,
@@ -87,31 +93,24 @@ def main():
             height=2,
             command=lambda:__convert_to(__select_file())
             )    
-    # inputtxt = tk.Text(
-    #                     mainwindow,
-    #                     height = 1,
-    #                     width = 15
-    #                     )
 
-    tk.Label(mainwindow, width=30, text="CRAMIC DATALOGGER", font='Helvetica 20 bold').grid(row=0, column=0, columnspan=2, pady=20) 
+    tk.Label(mainwindow, width=30, text="CRAMIC DATALOGGER", font='Helvetica 28 bold').grid(row=0, column=0, columnspan=2, pady=20) 
     button.grid(row=1, column=1, pady=5)
+
     tk.Label(mainwindow, width=30, text="Download data from datalogger", font=12).grid(row=1, column=0) 
     button2.grid(row=2, column=1, pady=5)
+
     tk.Label(mainwindow, width=30, text="Ping everything", font=12).grid(row=2, column=0)
     button3.grid(row=3, column=1, pady=5)
+
     tk.Label(mainwindow, width=30, text="Open both reset menu", font=12).grid(row=3, column=0)
     button4.grid(row=4, column=1, pady=5)
+
     tk.Label(mainwindow, width=30, text="Convert data to readable format", font=12).grid(row=4, column=0)
-    # inputtxt.pack(side=tk.BOTTOM, padx=5, pady=5)
-
-    # console = tk.Text(mainwindow,width=60, height=30, background='ivory')
-    # console.pack(side=tk.LEFT, padx=5, pady=5)
-
-    # pl = PrintLogger(console)
-
-    # sys.stdout = pl
 
     mainwindow.mainloop()
 
 if __name__ == '__main__':
     main()
+
+    
