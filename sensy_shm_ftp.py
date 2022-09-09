@@ -63,6 +63,7 @@ def __ftp_request():
         downloading = 0
         p.kill()
         b.kill()
+        print("CABIN1 AND CABIN2 subprocess have been killed")
 
 
 def main():
