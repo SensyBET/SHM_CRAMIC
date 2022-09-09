@@ -18,7 +18,7 @@ else:
     
 port_number = 21
 d = datetime.datetime.utcnow() + datetime.timedelta(0, -10)
-local_folder = "/media/pi_cramic/data_sensy/" + str(serial_id) + "/data_{:02d}_{:02d}_{:02d}_{:02d}{:02d}{:02d}".format(d.year, d.month, d.day, d.hour, d.minute, d.second)
+local_folder = "/media/pi_cramic/Seagate Basic/data_sensy/" + str(serial_id) + "/data_{:02d}_{:02d}_{:02d}_{:02d}{:02d}{:02d}".format(d.year, d.month, d.day, d.hour, d.minute, d.second)
 ftp = 0
 latest_name = None
 
