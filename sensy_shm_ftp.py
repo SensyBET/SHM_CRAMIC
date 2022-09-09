@@ -4,8 +4,12 @@ import sys
 import os
 import webbrowser
 import subprocess
+import signal
 # from ftp_client import main as main_ftp
 from binary_decoder import convert
+
+p = ""
+b = ""
 
 PINGADRR = {
     "Host" :"192.168.3.100",
@@ -14,6 +18,8 @@ PINGADRR = {
     "Arduino 1" :"192.168.3.104",
     "Arduino 2" :"192.168.3.107"
 }
+
+downloading = 0
 
 def __ping_everything():
 
@@ -47,8 +53,17 @@ def __convert_to(file):
 
 def __ftp_request():
     #main_ftp()
-    p = subprocess.Popen(['python', 'ftp_client1.py'])
-    b = subprocess.Popen(['python', 'ftp_client2.py'])
+    global downloading
+    global p, b
+    if downloading == 0:
+        p = subprocess.Popen(['python', 'ftp_client1.py'], start_new_session=True)
+        b = subprocess.Popen(['python', 'ftp_client2.py'], start_new_session=True)
+        downloading = 1
+    else:
+        downloading = 0
+        p.kill()
+        b.kill()
+
 
 def main():
     mainwindow = tk.Tk()

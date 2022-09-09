@@ -1,12 +1,3 @@
-# version: 1.2
-# 
-# from 1.0 -> 1.1
-# - add retrieve_new_files, called every 30 s
-# - add port_number in global variables
-# from 1.0 -> 1.1
-# - adapted to firmware 1.2: retrieve data every 60 sec, change FTP credential
-# - improve FTP download
-
 from ftplib import FTP
 import datetime
 import os
@@ -47,7 +38,7 @@ def every(delay, task):
 
 #d = date.now(timezone.utc)
 def get_curr_filename(d):
-    filename = "ACC_{:02d}_{:02d}_{:02d}_{:02d}{:02d}{:02d}.BIN".format(d.year, d.month, d.day, d.hour, d.minute, d.second)
+    filename = "{}: ACC_{:02d}_{:02d}_{:02d}_{:02d}{:02d}{:02d}.BIN".format(serial_id ,d.year, d.month, d.day, d.hour, d.minute, d.second)
     return filename
 
 def print_time():
@@ -66,7 +57,7 @@ def retrieve_one_file():
         ftp.retrbinary('RETR '+ filename, local_file.write)
     t2 = time.time()
         
-    print("{} retrieved in {:.3f} seconds".format(filename, t2 - t1))
+    print("{}:{} retrieved in {:.3f} seconds".format(serial_id, filename, t2 - t1))
 
 def retrieve_new_files():
     global ftp
@@ -108,36 +99,36 @@ def retrieve_new_files():
     
     t2 = time.time()
     
-    print("{} files retrieved in {:.3f} seconds (last={})".format(cnt, t2 - t1, latest_name))
+    print("{}: {} files retrieved in {:.3f} seconds (last={})".format(serial_id, cnt, t2 - t1, latest_name))
         
 
 def signal_handler(sig, frame):
-    print("FTP client: end")
+    print(f"{serial_id}: FTP client: end")
     sys.exit(0)
 
 def __get_data():
     global ftp 
-    print("FTP client: start")
+    print(f"{serial_id}: FTP client: start")
     
     signal.signal(signal.SIGINT, signal_handler)
 
     if not os.path.exists(local_folder):
         os.makedirs(local_folder)
-    print("Folder {} created".format(local_folder))
+    print("{}: Folder {} created".format(serial_id, local_folder))
 
 
-    print("FTP hostname={} port={}".format(hostname, port_number))
+    print("{}: FTP hostname={} port={}".format(serial_id, hostname, port_number))
 
     ftp = FTP()
     # try :
     ftp.connect(host=hostname, port=port_number, timeout=5)
 
-    print("FTP connect OK")
+    print(f"{serial_id}: FTP connect OK")
     if 0: 
         ftp.login(user='shm', passwd='woelfel')
     else:
         ftp.login(user='shm_dau', passwd='Woelfel15')
-    print("FTP login OK")
+    print(f"{serial_id}: FTP login OK")
 
 
     retrieve_new_files()
