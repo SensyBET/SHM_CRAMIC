@@ -17,6 +17,7 @@ import sys
 
 #global variable
 RETRIEVER_PERIOD_IN_S = 60
+
 if 1:
     serial_id = "CABIN1"##20510031
     # hostname = "M" + str(serial_id)
@@ -115,7 +116,6 @@ def signal_handler(sig, frame):
     sys.exit(0)
 
 def main():
-    print("WTF")
     global ftp 
     print("FTP client: start")
     
@@ -129,21 +129,21 @@ def main():
     print("FTP hostname={} port={}".format(hostname, port_number))
 
     ftp = FTP()
-    try :
-        ftp.connect(host=hostname, port=port_number, timeout=5)
-    
-        print("FTP connect OK")
-        if 0: 
-            ftp.login(user='shm', passwd='woelfel')
-        else:
-            ftp.login(user='shm_dau', passwd='Woelfel15')
-        print("FTP login OK")
+    # try :
+    ftp.connect(host=hostname, port=port_number, timeout=5)
+
+    print("FTP connect OK")
+    if 0: 
+        ftp.login(user='shm', passwd='woelfel')
+    else:
+        ftp.login(user='shm_dau', passwd='Woelfel15')
+    print("FTP login OK")
 
 
-        retrieve_new_files()
-        every(RETRIEVER_PERIOD_IN_S, retrieve_new_files)
-    except : 
-        print("FTP error")
+    retrieve_new_files()
+    every(RETRIEVER_PERIOD_IN_S, retrieve_new_files)
+    # except : 
+    #     print("FTP error")
 
 
 if __name__ == "__main__":
