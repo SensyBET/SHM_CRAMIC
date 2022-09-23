@@ -5,6 +5,7 @@ import os
 import webbrowser
 import subprocess
 import signal
+import pandas as pd
 # from ftp_client import main as main_ftp
 from binary_decoder import convert
 from convert_csv_to_xl import convert_csv_xls
@@ -48,9 +49,32 @@ def __select_file():
     path= filedialog.askopenfilename(title="Select a File", filetype=(('all files','*.*'),))
     return path
 
+def __select_folder():
+    
+    # path= filedialog.askdirectory(title="Select a Folder")
+    path= filedialog.askdirectory(title="Select a Directory")
+    return path
+
 def __convert_to(file):
     print("Covnerting file: %s" % file)
     convert(file)
+
+def __mass_convert(folder):
+    print("Mass converting %s" % folder)
+    for path in os.listdir(folder):
+        if path[-4:] == '.bin':
+            __convert_to(f"{folder}/{path}")
+    print("Merging everything")
+
+    csv_list = []
+    for path in os.listdir(folder):
+        if path[-4:] == '.csv':
+            csv_list.append(f"{folder}/{path}")
+            print(csv_list)
+
+    combined_csv = pd.concat([pd.read_csv(f) for f in csv_list ])
+    combined_csv.to_csv( f"{folder}/MERGE_DATA.csv", index=False, encoding='utf-8-sig')
+    print(f"Merging file created as :{folder}/MERGE_DATA.csv")
 
 def __convert_csv(file):
     print("Covnerting file: %s" % file)
@@ -123,7 +147,17 @@ def main():
             width=10,
             height=2,
             command=lambda:__convert_csv(__select_file())
-            )    
+            ) 
+
+    button6 = tk.Button(
+            mainwindow,
+            text="Mass Convert",
+            foreground="white",
+            background="grey",
+            width=10,
+            height=2,
+            command=lambda:__mass_convert(__select_folder())
+            )      
 
     tk.Label(mainwindow, width=30, text="CRAMIC DATALOGGER", font='Helvetica 28 bold').grid(row=0, column=0, columnspan=2, pady=20) 
     
@@ -139,7 +173,10 @@ def main():
     button4.grid(row=4, column=1, pady=5)
     tk.Label(mainwindow, width=30, text="Convert data to readable format", font=12).grid(row=4, column=0)
 
-    button5.grid(row=5, column=1, pady=5)
+    button6.grid(row=5, column=1, pady=5)
+    tk.Label(mainwindow, width=30, text="Mass convert data to readable format", font=12).grid(row=5, column=0)
+
+    button5.grid(row=6, column=1, pady=5)
     tk.Label(mainwindow, width=30, text="Convert .csv to xls format", font=12).grid(row=5, column=0)
 
     mainwindow.mainloop()
