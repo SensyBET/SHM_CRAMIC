@@ -42,6 +42,7 @@ file_idx = 0
 
 # print iaw verbosity
 def debug_print(v, *args):
+    """Debug print"""
     if VERBOSE >= v:
         print(*args)
 
@@ -70,6 +71,7 @@ def create_new_output_file (filename, header):
     return new_file
 
 def convert(filename):
+    """Convert functoion !!! NEED cleaning !!!"""
     print("N_CHANNEL={} BLOCK_SIZE_MAX={}".format(N_CHANNEL, BLOCK_SIZE_MAX))
 
     ### Load Scaling Config ###
